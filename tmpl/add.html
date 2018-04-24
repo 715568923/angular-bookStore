@@ -1,0 +1,25 @@
+<form name="myForm" novalidate="novalidate">
+    <!--使用angular校验 -->
+    <div class="form-group">
+        <label for="bookName" class="control-label">书名</label>
+        <input type="text" class="form-control" id="bookName" name="bookName" placeholder="请输入书名" ng-model="book.bookName" ng-required="true" autocomplete="off">
+        <div class="alert alert-danger" ng-show="myForm.bookName.$error.required && myForm.bookName.$dirty">书名必须填写</div>
+    </div>
+    <div class="form-group">
+        <label for="bookPrice" class="control-label">价格</label>
+        <input type="text" class="form-control" id="bookPrice" name="bookPrice"placeholder="请输入价格" ng-model="book.bookPrice" ng-required="true" autocomplete="off" ng-pattern="/^\d+$/">
+        <div class="alert alert-danger" ng-show="myForm.bookPrice.$error.required && myForm.bookPrice.$dirty">价格必须填写</div>
+        <div class="alert alert-danger" ng-show="myForm.bookPrice.$error.pattern ">价格必须是数字类型</div>
+    </div>
+    <div class="form-group">
+        <label for="bookCover" class="control-label">封面</label>
+        <input type="text" class="form-control" id="bookCover" name="bookCover" placeholder="请输入封面" ng-model="book.bookCover" ng-required="true" autocomplete="off">
+        <div class="alert alert-danger" ng-show="myForm.bookCover.$error.required && myForm.bookCover.$dirty">封面必须填写</div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info" ng-disabled="myForm.$invalid" ng-click="add(book)">添加图书</button>
+    </div>
+</form>
+<pre>
+    {{myForm |json}}
+</pre>

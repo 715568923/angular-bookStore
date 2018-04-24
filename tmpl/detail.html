@@ -1,0 +1,20 @@
+<div class="col-md-4 col-md-offset-4">
+    <div class="panel panel-primary" >
+        <div class="panel-footer">
+             <span ng-show="flag">{{book.bookName}}</span>
+            <input type="text" ng-model="temp.bookName" ng-hide="flag">
+            <a href="#!/list" class="btn btn-default btn-xs pull-right">返回</a>
+        </div>
+        <div class="panel-body text-center"><img ng-src="{{book.bookCover}}" width="100%" height="200"> </div>
+        <div class="panel-footer">
+            <span ng-show="flag"> {{book.bookPrice |currency:$}}</span>
+            <input type="text" ng-model="temp.bookPrice" ng-hide="flag">
+
+            <button class="btn btn-info" ng-click="edite(book)" ng-show="flag">修改</button>
+            <button class="btn btn-danger" ng-click="remove(book)" ng-show="flag">删除</button>
+
+            <button class="btn btn-default" ng-hide="flag" ng-click="flag=true">取消</button>
+            <button class="btn btn-success" ng-hide="flag" ng-click="shure()">确认</button>
+        </div>
+    </div>
+</div>
